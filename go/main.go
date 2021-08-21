@@ -463,7 +463,7 @@ func getIsuList(c echo.Context) error {
 	conditions := []IsuCondition{}
 	foundLastCondition := true
 	err = tx.Get(&conditions,`
-		selet * from isu
+		select * from isu
 		join isu_condition on isu.jia_isu_uuid = isu_condition.jia_isu_uuid
 		where isu.jia_user_id = ?
 		order by isu.id, isu_condition.timestamp desc`,
