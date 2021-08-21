@@ -37,4 +37,5 @@ CREATE TABLE `isu_association_config` (
 ) ENGINE=InnoDB DEFAULT CHARACTER SET=utf8mb4;
 
 ALTER TABLE isu ADD INDEX index_isu_jia_user_id(jia_user_id);
-ALTER TABLE isu_condition ADD INDEX index_isu_condition_jia_isu_uuid(jia_isu_uuid);
+ALTER TABLE isu_condition ADD INDEX index_isu_condition_jia_isu_uuid_timestamp(jia_isu_uuid, timestamp);
+ALTER TABLE isu ADD INDEX index_isu_character(`character`);
