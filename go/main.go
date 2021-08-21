@@ -460,8 +460,6 @@ func getIsuList(c echo.Context) error {
 	defer tx.Rollback()
 
 
-	responseList := []GetIsuListResponse{}
-
 	conditions := []IsuCondition{}
 	foundLastCondition := true
 	err = tx.Get(&conditions,`
@@ -491,6 +489,8 @@ func getIsuList(c echo.Context) error {
 			lastConditions[con.JIAIsuUUID] = con
 		}
 	}
+
+	responseList := []GetIsuListResponse{}
 
 	for k,isu := range lastConditions {
 		var formattedCondition *GetIsuConditionResponse
